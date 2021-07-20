@@ -27,14 +27,17 @@ def body(rrange):
             print(f'Количество попыток: {count}')
             break
 
-print('Добро пожаловать в числовую угадайку')
-print('Введите правую границу (1..Х)')
-while True:
-    rrange = input()
-    if not rrange.isdigit():
-        print('А может быть все-таки введем целое число?')
-    else:
-        break
-
-body(int(rrange))
+print('Добро пожаловать в числовую угадайку, хотите поиграть? д=Да, н=Нет')
+iswant = input()
+while iswant == 'д':
+    print('Введите правую границу (1..Х)')
+    while True:
+        rrange = input()
+        if not rrange.isdigit():
+            print('А может быть все-таки введем целое число?')
+        else:
+            break
+    body(int(rrange))
+    print('Хотите сыграть ещё раз? д=Да, н=Нет')
+    iswant = input()
 print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
