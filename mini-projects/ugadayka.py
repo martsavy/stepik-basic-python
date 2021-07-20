@@ -1,29 +1,40 @@
 from random import randint
-def is_valid(a):
+def is_valid(a, rrange):
     if not a.isdigit():
         return False
-    if 1 <= int(a) <= 100:
+    if 1 <= int(a) <= rrange:
         return True
     else:
         return False
-n = randint(1, 100)
-count = 0
+def body(rrange):
+    n = randint(1, rrange)
+    count = 0
+    while True:
+        print(f'Введите число от 1 до {rrange}')
+        answer = input()
+        count += 1
+        if not is_valid(answer, rrange):
+            print(f'А может быть все-таки введем целое число от 1 до {rrange}?')
+            continue
+        int_answer = int(answer)
+        if int_answer > n:
+            print('Ваше число больше загаданного, попробуйте еще разок')
+            continue
+        elif int_answer < n:
+            print('Ваше число меньше загаданного, попробуйте еще разок')
+        else:
+            print('Вы угадали, поздравляем!')
+            print(f'Количество попыток: {count}')
+            break
+
 print('Добро пожаловать в числовую угадайку')
+print('Введите правую границу (1..Х)')
 while True:
-    print('Введите число от 1 до 100')
-    answer = input()
-    count += 1
-    if not is_valid(answer):
-        print('А может быть все-таки введем целое число от 1 до 100?')
-        continue
-    int_answer = int(answer)
-    if int_answer > n:
-        print('Ваше число больше загаданного, попробуйте еще разок')
-        continue
-    elif int_answer < n:
-        print('Ваше число меньше загаданного, попробуйте еще разок')
+    rrange = input()
+    if not rrange.isdigit():
+        print('А может быть все-таки введем целое число?')
     else:
-        print(f'Вы угадали, поздравляем!')
-        print(f'Количество попыток: {count}')
         break
+
+body(int(rrange))
 print('Спасибо, что играли в числовую угадайку. Еще увидимся...')
