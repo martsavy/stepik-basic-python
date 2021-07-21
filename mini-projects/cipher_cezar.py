@@ -52,7 +52,7 @@ def process(s, direction, lang, key):
             elif c in rus_upper_alphabet:
                 res += encrypt(c, key, cardo, rus_upper_alphabet)
             elif c in eng_lower_alphabet:
-                res += encrypt(c, key, cardo, rus_lower_alphabet)
+                res += encrypt(c, key, cardo, eng_lower_alphabet)
             elif c in eng_upper_alphabet:
                 res += encrypt(c, key, cardo, eng_upper_alphabet)
             else:
@@ -63,7 +63,7 @@ def process(s, direction, lang, key):
             elif c in rus_upper_alphabet:
                 res += decrypt(c, key, cardo, rus_upper_alphabet)
             elif c in eng_lower_alphabet:
-                res += decrypt(c, key, cardo, rus_lower_alphabet)
+                res += decrypt(c, key, cardo, eng_lower_alphabet)
             elif c in eng_upper_alphabet:
                 res += decrypt(c, key, cardo, eng_upper_alphabet)
             else:
